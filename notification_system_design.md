@@ -158,3 +158,31 @@ SELECT * FROM notifications
 WHERE notificationType = 'Placement'
 AND createdAt >= NOW() - INTERVAL 7 DAY;
 ```
+
+# Stage 4
+
+## Solution
+
+Do not fetch notifications on every page load.
+
+Use:
+
+* Pagination
+* Cache memory
+
+This reduces DB load and improves speed.
+
+---
+
+## Performance Improvement
+
+* Load only latest notifications
+* Store frequently used data in cache
+
+---
+
+## Tradeoff
+
+Cache is faster but may show old data for some time.
+
+---
