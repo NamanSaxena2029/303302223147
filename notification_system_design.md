@@ -220,3 +220,15 @@ worker_process():
    send_email()
    push_to_app()
 ```
+
+
+# Stage 6
+
+Priority notifications are shown using priority order:
+
+* Placement
+* Result
+* Event
+
+Notifications are sorted based on importance.
+
