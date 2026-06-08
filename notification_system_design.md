@@ -186,3 +186,37 @@ This reduces DB load and improves speed.
 Cache is faster but may show old data for some time.
 
 ---
+
+# Stage 5
+
+## Problems
+
+* Sending emails one by one is slow
+* If email fails, notification may not reach user
+
+---
+
+## Better Solution
+
+Use Queue System.
+
+* Save notification in DB first
+* Send emails in background
+
+This makes system faster and reliable.
+
+---
+
+## Revised Pseudocode
+
+```txt id="0lx7l0"
+function notify_all(student_ids, message):
+
+   save_to_db(student_ids, message)
+
+   add_to_queue(student_ids, message)
+
+worker_process():
+   send_email()
+   push_to_app()
+```
