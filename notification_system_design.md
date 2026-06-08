@@ -99,3 +99,62 @@ SELECT * FROM notifications;
 
 * Use indexing
 * Delete old notifications
+
+# Stage 3
+
+## Why Query is Slow
+
+Because database has too much data.
+
+```sql id="af4n9e"
+SELECT * FROM notifications
+WHERE studentID = 1042 AND isRead = false
+ORDER BY createdAt ASC;
+```
+
+This query checks many rows, so it becomes slow.
+
+---
+
+## Solution
+
+Use index on:
+
+* studentID
+* isRead
+
+This makes searching faster.
+
+---
+
+## Better Query
+
+```sql id="2jv6s0"
+SELECT * FROM notifications
+WHERE studentID = 1042
+AND isRead = false
+ORDER BY createdAt ASC;
+```
+
+---
+
+## Should We Add Index on Every Column?
+
+No.
+
+Because too many indexes:
+
+* increase storage
+* slow down insert/update
+
+Indexes should only be used on important columns.
+
+---
+
+## Placement Notification Query
+
+```sql id="q8tbz1"
+SELECT * FROM notifications
+WHERE notificationType = 'Placement'
+AND createdAt >= NOW() - INTERVAL 7 DAY;
+```
