@@ -232,3 +232,31 @@ Priority notifications are shown using priority order:
 
 Notifications are sorted based on importance.
 
+
+# Stage 7
+
+## Frontend - Notification App
+
+React app running on `http://localhost:3000`
+
+### Pages
+
+**1. All Notifications**
+- Fetches all notifications from API
+- New notifications highlighted in color
+- Already viewed shown in grey
+- Search filter available
+
+**2. Priority Notifications**
+- Filter by type: Placement, Result, Event
+- Top N limit — show only limited notifications
+- Apply button to fetch filtered results
+
+### API Used
+- `GET /evaluation-service/notifications`
+- `GET /evaluation-service/notifications?limit=5&notification_type=Placement`
+
+### Tech Stack
+- React + Vite
+- Material UI
+- Runs on localhost:3000
