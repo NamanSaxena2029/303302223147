@@ -43,3 +43,59 @@ Response:
 ## Real Time Notification
 
 Using WebSocket for live notifications.
+
+
+# Stage 2
+
+## Database
+
+Using SQL Database.
+
+### Table: notifications
+
+| Column  | Type    |
+| ------- | ------- |
+| id      | INT     |
+| title   | VARCHAR |
+| message | TEXT    |
+
+---
+
+## Create Table Query
+
+```sql
+CREATE TABLE notifications (
+  id INT PRIMARY KEY,
+  title VARCHAR(100),
+  message TEXT
+);
+```
+
+---
+
+## Insert Notification
+
+```sql
+INSERT INTO notifications
+VALUES (1, 'New Message', 'Hello User');
+```
+
+---
+
+## Get Notifications
+
+```sql
+SELECT * FROM notifications;
+```
+
+---
+
+## Problem with Large Data
+
+* Slow queries
+* More storage needed
+
+## Solution
+
+* Use indexing
+* Delete old notifications
